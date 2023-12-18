@@ -1,0 +1,53 @@
+172.31.9.214
+
+172.31.12.158
+172.31.9.224
+172.31.8.52
+
+*Intail settings:
+
+    1  cd .ssh/
+    2  chmod 600 sydney123.pem
+    3  ssh -i sydney123.pem ec2-user@172.31.12.158
+    4  ssh ec2-user@172.31.12.158
+    5  eval "$(ssh-agent -s)"
+    6  ssh-add sydney123.pem
+    7  ssh ec2-user@172.31.12.158
+    8  ls
+    9  ssh ec2-user@172.31.9.224
+   10  ssh ec2-user@172.31.8.52
+
+* Install ansible:
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py --user
+python3 -m pip install --user ansible
+
+* Ansible operations:
+
+create inventory:
+
+[projecta]
+172.31.12.158 ansible_user=ec2-user
+
+[projectb]
+172.31.9.224 ansible_user=ec2-user
+172.31.8.52 ansible_user=ec2-user
+
+ansible all -i hosts -m shell -a "free -m"
+ansible all -i hosts -m shell -a "df -h"
+
+Write a playbook:
+***************
+---
+- hosts: all
+  become: true
+  tasks:
+    - get commands from ansible document official.
+
+***************
+	
+To execute this playbook
+ansible-playbook -i hosts playbookname.yml
+
+
+
