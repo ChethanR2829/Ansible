@@ -1,0 +1,82 @@
+    1  cd .ssh
+    2  ls
+    3  cat authorized_keys
+    4  clear
+    5  ls
+    6  ll
+    7  chmod 600 singapore123.pem
+    8  ssh -i singapore123.pem ec2-user@172.31.34.106
+    9  ls
+   10  cat known_hosts
+   11  ssh ec2-user@172.31.34.106
+   12  eval "$(ssh-agent -s)"
+   13  ssh-add singapore123.pem
+   14  ssh ec2-user@172.31.34.106
+   15  ssh ec2-user@172.31.38.139
+   16  ssh ec2-user@172.31.35.227
+   17  cd /home/ec2-user/
+   18  ls
+   19  ll
+   20  pwd
+   21  mkdir ansible
+   22  ls
+   23  cd ansible/
+   24  ls
+   25  vi hosts
+   26  cat hosts
+   27  vi host_projectb
+   28  ansible all -i hosts -m shell -a "free -m"
+   29  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+   30  python3 get-pip.py --user
+   31  python3 -m pip install --user ansible
+   32  ansible all -i hosts -m shell -a "free -m"
+   33  ansible all -i hosts -m shell -a "df -h"
+   34  clear
+   35  ansible projecta -i hosts -m shell -a "free -m"
+   36  ansible projectb -i hosts -m shell -a "free -m"
+   37  ls
+   38  ansible all host_projectb -i hosts -m shell -a "free -m"
+   39  clear
+   40  ansible all -i host_projectb -m shell -a "free -m"
+   41  ansible all -i hosts -m shell -a "free -m"
+   42  ansible all -i hosts -m shell -a "yum install maven -y"
+   43  ansible all -i hosts -m shell -a "sudo yum install maven -y"
+   44  ansible all -i hosts -m shell -a "sudo yum install docker -y"
+   45  ansible all -i hosts -m shell -a "sudo yum remove docker -y"
+   46*
+   47  ansible-playbook -i hosts httpd_install.yml
+   48  ansible-playbook -i hosts docker_install.yml
+   49  ansible-playbook -i hosts docker_remove.yml
+   50  ansible-playbook all -i hosts docker_remove.yml
+   51  clear
+   52  ansible-playbook -i hosts docker_remove.yml
+   53  ansible-playbook all -i hosts docker_remove.yml
+   54  clear
+   55  ls
+   56  vi docker_install.yml
+   57  ansible-playbook -i hosts docker_install.yml
+   58  cd
+   59  ls
+   60  mkdir ademo
+   61  cd ademo/
+   62  yum install git -y
+   63  sudo yum install git -y
+   64  sudo git clone https://github.com/ChethanR2829/Ansible.git
+   65  ls
+   66  cd Ansible/
+   67  ls
+   68  ansible-playbook -i hosts httpd_remove.yml
+   69  git clone https://github.com/ChethanR2829/Ansible.git
+   70  cd ..
+   71  ls
+   72  sudo git clone git clone https://github.com/ChethanR2829/Ansible.git
+   73  sudo git clone https://github.com/ChethanR2829/Ansible.git
+   74  sudo git pull https://github.com/ChethanR2829/Ansible.git
+   75  git init
+   76  ls
+   77  cd Ansible/
+   78  sudo git pull https://github.com/ChethanR2829/Ansible.git
+   79  ls
+   80  ansible-playbook -i hosts httpd_install.yml
+   81  clear
+   82  history
