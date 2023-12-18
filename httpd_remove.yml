@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: remove the latest version of Apache
+      ansible.builtin.yum:
+        name: httpd
+        state: absent
